@@ -421,11 +421,24 @@
   </footer>
 
   <!-- Email-Sending -->
-  <script type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+    $("#submit-form").submit((e) => {
+      e.preventDefault()
+      $.ajax({
+        url: "https://script.google.com/macros/s/AKfycbwKACuiNaIVRJclnAZvxonwTJ3O0m2PyjqnbRPJ4jmPAsg3G_sKcwjFb1-rbQIAhDJDSQ/exec",
+        data: $("#submit-form").serialize(),
+        method: "post",
+        success: function (response) {
+          alert("Your message has been sent.Thank you!")
+          window.location.reload()
+          //window.location.href="https://google.com"
+        },
+        error: function (err) {
+          alert("Something Error")
 
-  <script type="text/javascript">
-    emailjs.init('Zs0p5tO_JAjee6x7E')
+        }
+      })
+    })
   </script>
 
   <!-- Scroll Top -->
